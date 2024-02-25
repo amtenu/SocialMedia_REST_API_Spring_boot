@@ -17,5 +17,15 @@ public class VersioninigStudentController {
 	public StudentV2 getSecondVersionOfStudent() {
 		return new StudentV2("Amanuel",LocalDate.of(2020, 2, 2));
 	}
+	
+	@GetMapping(path="/student",params="version=1")
+	public StudentV1 getFirstVersionOfStudentUsingRequestParameter() {
+		return new StudentV1("Amanuel");
+	}
+	
+	@GetMapping(path="/student",params="version=2")
+	public StudentV2 getSecondVersionOfStudentUsingRequestParameter() {
+		return new StudentV2("Amanuel",LocalDate.of(2020, 2, 2));
+	}
 
 }
