@@ -28,4 +28,17 @@ public class VersioninigStudentController {
 		return new StudentV2("Amanuel",LocalDate.of(2020, 2, 2));
 	}
 
+	
+	@GetMapping(path="/student/header",headers="X-API-VERSION=1")
+	public StudentV1 getFirstVersionOfStudentUsingRequestHeaders() {
+		return new StudentV1("Amanuel");
+	}
+	
+	
+	@GetMapping(path="/student/header",headers="X-API-VERSION=2")
+	public StudentV2 getSecondVersionOfStudentUsingRequestHeader() {
+		return new StudentV2("Amanuel",LocalDate.of(2020, 2, 2));
+	}
+	
+	
 }
