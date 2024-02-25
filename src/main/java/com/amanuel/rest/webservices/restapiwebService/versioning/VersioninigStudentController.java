@@ -41,4 +41,14 @@ public class VersioninigStudentController {
 	}
 	
 	
+	@GetMapping(path="/student/accept",produces="application/v1.amanuelINC.app-V1+json")
+	public StudentV1 getFirstVersionOfStudentUsingAcceptHeader() {
+		return new StudentV1("Amanuel");
+	}
+	
+	@GetMapping(path="/student/accept",produces="application/v2.amanuelINC.app-V2+json")
+	public StudentV2 getSecondVersionOfStudentUsingUsingAcceptHeader() {
+		return new StudentV2("Amanuel",LocalDate.of(2020, 2, 2));
+	}
+	
 }
