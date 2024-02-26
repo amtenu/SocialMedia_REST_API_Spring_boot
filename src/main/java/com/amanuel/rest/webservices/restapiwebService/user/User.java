@@ -14,6 +14,8 @@ import jakarta.validation.constraints.Size;
 
 @Entity(name="user_details")
 public class User {
+	
+	protected User() {};
 
 	@Id
 	@GeneratedValue
