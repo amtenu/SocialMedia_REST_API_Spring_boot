@@ -31,8 +31,17 @@ public class AdminsController {
 	}
 	
 	@GetMapping("/admins_list")
-	public List<admins> getAdminsAsList() {
-		return Arrays.asList(new admins(1,"Aman","1234"),new admins(1,"Solo","1234"));
+	public MappingJacksonValue getAdminsAsList() {
+		
+		List<admins> adminsList = Arrays.asList(new admins(1,"Aman","1234"),new admins(1,"Solo","1234"));
+		
+		MappingJacksonValue mappingJacksonValue =new MappingJacksonValue(adminsList);
+		
+		SimpleBeanPropertyFilter filter=SimpleBeanPropertyFilter.filterOutAllExcept("id","name");
+		FilterProvider filters=new SimpleFilterProvider().addFilter("adminsFilter", filter);
+		
+		mappingJacksonValue.setFilters(filters);
+		return mappingJacksonValue;
 		
 	}
 
