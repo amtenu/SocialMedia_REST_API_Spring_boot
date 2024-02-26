@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 
-@Entity(name="user-details")
+@Entity(name="user_details")
 public class User {
 
 	@Id
@@ -23,7 +23,7 @@ public class User {
 	@JsonProperty("user_name")
 	private String name;
 	@Past(message="Birthday shouldn't be in the past")
-	@JsonProperty("Date of Birth")
+	@JsonProperty("Date_of_Birth")
 	private LocalDate birthdate;
 
 	public User(Integer id, String name, LocalDate birthdate) {
