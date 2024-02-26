@@ -1,9 +1,11 @@
 package com.amanuel.rest.webservices.restapiwebService.admins;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
-@JsonIgnoreProperties({"password","SecretKey","id"})
+//@JsonIgnoreProperties({"password","SecretKey","id"})
+@JsonFilter("adminsFilter")
 public class admins {
 	
 	private Integer id;
