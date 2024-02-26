@@ -2,6 +2,8 @@ package com.amanuel.rest.webservices.restapiwebService.user;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -10,8 +12,10 @@ public class User {
 	private Integer id;
 	
 	@Size(min=2,message="Name should have @ least 2 chars")
+	@JsonProperty("user_name")
 	private String name;
 	@Past(message="Birthday shouldn't be in the past")
+	@JsonProperty("Date of Birth")
 	private LocalDate birthdate;
 
 	public User(Integer id, String name, LocalDate birthdate) {
