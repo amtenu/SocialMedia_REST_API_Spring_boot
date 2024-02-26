@@ -1,15 +1,19 @@
 package com.amanuel.rest.webservices.restapiwebService.admins;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+@JsonIgnoreProperties({"password","SecretKey","id"})
 public class admins {
 	
 	private Integer id;
 	
 	private String name;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	private String password;
+	
+	private static String SecretKey="24242";
 
 	public Integer getId() {
 		return id;
@@ -24,6 +28,19 @@ public class admins {
 	}
 	
 	
+
+	public static String getSecretKey() {
+		return SecretKey;
+	}
+
+
+	public admins(Integer id, String name, String password,String SecretKey) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		admins.SecretKey=SecretKey;
+	}
 
 	public void setId(Integer id) {
 		this.id = id;
