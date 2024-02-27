@@ -3,6 +3,7 @@ package com.amanuel.rest.webservices.restapiwebService.user;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
@@ -30,6 +31,7 @@ public class User {
 	private LocalDate birthdate;
 	
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<Post> post;
 
 	public User(Integer id, String name, LocalDate birthdate) {
@@ -61,6 +63,14 @@ public class User {
 
 	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
+	}
+
+	public List<Post> getPost() {
+		return post;
+	}
+
+	public void setPost(List<Post> post) {
+		this.post = post;
 	}
 
 	@Override
